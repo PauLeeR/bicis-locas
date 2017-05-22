@@ -28,20 +28,19 @@ function validateForm(){
 		contenedorNombre.appendChild(spanNameMay);
 		return spanNameMay;
 	}
-	if (apellido == null || apellido.length == 0 ||  /^\s+$/.test(apellido)){
+	if (apellido == "" || apellido.length == 0 || /^[a-zA-Z]+$/.test(apellido) == false){
 		var spanLastn = document.createElement("span");
 		var textoSpanLastname = document.createTextNode("Este campo no debe estar vacío");
 		var contenedorApellido = document.getElementsByClassName("lastname-container input-box")[1];
 		spanLastn.appendChild(textoSpanLastname);
-		contenedorApellido.appendChild(spanLastn);//tira error "CAnnot read appendChild property of undefined, la consola no muestra qué es lo undefined"
+		contenedorApellido.appendChild(spanLastn);
 		return false;
-
 	} else if(apellido == "" || apellido.charAt(0) != apellido.charAt(0).toUpperCase()){
 		var spanLastnMay = document.createElement("span");
 		var textoSpanLastnameMay = document.createTextNode("Tu apellido debe comenzar con mayúscula");
 		var contenedorApellido = document.getElementsByClassName("lastname-container input-box")[1];
 		spanLastnMay.appendChild(textoSpanLastnameMay);
-		contenedorApellido.appendChild(textoSpanLastnameMay);//tira error "CAnnot read appendChild property of undefined, la consola no muestra qué es lo undefined"
+		contenedorApellido.appendChild(textoSpanLastnameMay);
 		return true;
 	}
 	if(/\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)/.test(mail) === false){
@@ -52,7 +51,7 @@ function validateForm(){
 		contenedorNombre.appendChild(spanEmail);
 		return false;	
 	} 
-	if (password == null || password.length == 0 || /^\s+$/.test(password)){ 
+	if (password == "" || password.length == 0 || /^\s+$/.test(password)){ 
 		var spanPass = document.createElement("span");
 		var textoSpanPass = document.createTextNode("Este campo no debe estar vacio");
 		spanPass.appendChild(textoSpanPass);
@@ -67,7 +66,7 @@ function validateForm(){
 		contenedorPassword.appendChild(spanPassSeguro);
 		return false;
 	}
-	if(bici == null || bici == 0){
+	if(bici == ""){
 		var spanBici = document.createElement("span");
 		var textoSpanBici = document.createTextNode("Selecciona una opción");
 		var contenedorBici = document.getElementsByClassName("form-group input-box")[4];
