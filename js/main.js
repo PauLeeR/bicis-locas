@@ -33,7 +33,7 @@ function validateForm(){
 		var textoSpanLastname = document.createTextNode("Este campo no debe estar vacío");
 		var contenedorApellido = document.getElementsByClassName("lastname-container input-box")[1];
 		spanLastn.appendChild(textoSpanLastname);
-		contenedorApellido.appendChild(spanLastn);
+		contenedorApellido.appendChild(spanLastn);//tira error "CAnnot read appendChild property of undefined, la consola no muestra qué es lo undefined"
 		return false;
 
 	} else if(apellido == "" || apellido.charAt(0) != apellido.charAt(0).toUpperCase()){
@@ -41,7 +41,7 @@ function validateForm(){
 		var textoSpanLastnameMay = document.createTextNode("Tu apellido debe comenzar con mayúscula");
 		var contenedorApellido = document.getElementsByClassName("lastname-container input-box")[1];
 		spanLastnMay.appendChild(textoSpanLastnameMay);
-		contenedorApellido.appendChild(textoSpanLastnameMay);
+		contenedorApellido.appendChild(textoSpanLastnameMay);//tira error "CAnnot read appendChild property of undefined, la consola no muestra qué es lo undefined"
 		return true;
 	}
 	if(/\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)/.test(mail) === false){
